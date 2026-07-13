@@ -1,0 +1,9 @@
+{
+  "name": "我的衣橱",
+  "short_name": "衣橱",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f1ea",
+  "theme_color": "#f7f1ea",
+  "icons": []
+}
