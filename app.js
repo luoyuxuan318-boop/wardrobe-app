@@ -63,12 +63,22 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   db = await openDb();
+  await requestStoragePersistence();
   await refreshData();
   await removeUnusedDefaultLocations();
   await refreshData();
   wireEvents();
   populateCategorySelect();
   renderAll();
+}
+
+async function requestStoragePersistence() {
+  if (!navigator.storage || !navigator.storage.persist) return;
+  try {
+    await navigator.storage.persist();
+  } catch (error) {
+    console.info("Storage persistence request was not granted.", error);
+  }
 }
 
 function openDb() {
